@@ -1,0 +1,15 @@
+{
+  "name": "itodo",
+  "version": "0.0.1",
+  "description": "Get the todo list",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": "",
+  "keywords": [
+    "TODO"
+  ],
+  "author": "Jackson Tian",
+  "license": "MIT"
+}
