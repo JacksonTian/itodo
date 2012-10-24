@@ -31,8 +31,9 @@ if (!program.input) {
   console.log('$ itodo -i <folder>');
 } else {
   // process stdin
-  itodo.process(program.input, function (err, list) {
-    console.log("项目路径：" + program.input);
+  var input = path.resolve(program.input);
+  itodo.process(input, function (err, list) {
+    console.log("项目路径：" + input);
     if (err) {
       console.log("扫描项目出现错误：");
       console.log(err);
