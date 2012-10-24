@@ -32,6 +32,21 @@ if (!program.input) {
 } else {
   // process stdin
   itodo.process(program.input, function (err, list) {
-    console.log(arguments);
+    console.log("项目路径：" + program.input);
+    if (err) {
+      console.log("扫描项目出现错误：");
+      console.log(err);
+      return;
+    }
+    if (list.length) {
+      console.log("您项目的TODO列表项还有：" + list.length + "项");
+      console.log('类型\t|内容\t\t\t\t|行\t|文件名\t\t');
+      list.forEach(function (item) {
+        console.log('---------------------------------------------------------------------');
+        console.log([item.type, item.item, item.lineno, item.filename].join('\t|'));
+      });
+    } else {
+      console.log("恭喜您，项目的TODO列表为空");
+    }
   });
 }
