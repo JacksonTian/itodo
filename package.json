@@ -14,7 +14,8 @@
     "TODO"
   ],
   "dependencies": {
-    "iwalk": "*"
+    "iwalk": "*",
+    "commander": "*"
   },
   "author": "Jackson Tian",
   "license": "MIT"
