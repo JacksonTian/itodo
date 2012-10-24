@@ -6,10 +6,16 @@
   "scripts": {
     "test": "mocha"
   },
+  "bin": {
+    "itodo": "./bin/itodo"
+  },
   "repository": "",
   "keywords": [
     "TODO"
   ],
+  "dependencies": {
+    "iwalk": "*"
+  },
   "author": "Jackson Tian",
   "license": "MIT"
 }

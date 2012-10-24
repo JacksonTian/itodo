@@ -1,0 +1,37 @@
+#!/usr/bin/env node
+
+/**
+ * Module dependencies.
+ */
+
+var program = require('commander'),
+  fs = require('fs'),
+  path = require('path'),
+  itodo = require('../');
+
+// options
+
+program
+  .version(itodo.version)
+  .option('-i, --input <folder>', 'Where is the project');
+
+// examples
+
+program.on('--help', function(){
+  console.log('  Examples:');
+  console.log('');
+  console.log('    $ itodo -i <folder>');
+  console.log('');
+});
+
+// parse argv
+program.parse(process.argv);
+
+if (!program.input) {
+  console.log('$ itodo -i <folder>');
+} else {
+  // process stdin
+  itodo.process(program.input, function (err, list) {
+    console.log(arguments);
+  });
+}
