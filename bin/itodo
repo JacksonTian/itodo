@@ -42,9 +42,9 @@ if (!program.input) {
     }
     if (list.length) {
       console.log("您项目的TODO列表项还有：" + list.length + "项");
-      var lines = [['类型', '内容', '行', '文件名']];
+      var lines = [['类型', '内容', '文件名:行']];
       list.forEach(function (item) {
-        lines.push([item.type, item.item, item.lineno, item.filename]);
+        lines.push([item.type, item.item, item.filename + ':' + item.lineno]);
       });
       console.log(pt.print(lines, ' | '));
     } else {
