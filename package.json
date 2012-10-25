@@ -15,7 +15,8 @@
   ],
   "dependencies": {
     "iwalk": "*",
-    "commander": "*"
+    "commander": "*",
+    "printable": "*"
   },
   "author": "Jackson Tian",
   "license": "MIT"
