@@ -24,17 +24,12 @@ itodo --help // 一目了然所有相关命令
 
 ```
 my_datavjs jacksontian $itodo -i .
-项目路径：.
-您项目的TODO列表项还有：4项
-类型  |内容       |行  |文件名    
----------------------------------------------------------------------
-TODO  |Stop taunting the data cache; remove global events and always attach to document |3092 |/Users/jacksontian/git/my_datavjs/deps/jquery-1.7.1.js
----------------------------------------------------------------------
-TODO  |Move to normal caching system  |4425 |/Users/jacksontian/git/my_datavjs/deps/jquery-1.7.1.js
----------------------------------------------------------------------
-TODO  |用underscore的uniq替换该方法  |806  |/Users/jacksontian/git/my_datavjs/lib/charts/bubble.js
----------------------------------------------------------------------
-TODO  |改进为获取值时运算  |75 |/Users/jacksontian/git/my_datavjs/lib/charts/bundle.js
+项目路径：/Users/jacksontian/git/itodo
+您项目的TODO列表项还有：3项
+类型 | 内容                                     | 行 | 文件名                                                                            
+TODO | 还需要过滤node_modules目录下的文件       | 32 | /Users/jacksontian/git/itodo/lib/itodo.js                                         
+hack | check for the v0.6.x "data" event        | 69 | /Users/jacksontian/git/itodo/node_modules/commander/node_modules/keypress/index.js
+hack | check for the v0.6.x "newListener" event | 78 | /Users/jacksontian/git/itodo/node_modules/commander/node_modules/keypress/index.js
 ```
 
 ## 手工调用
@@ -60,6 +55,20 @@ itodo.process(input, function (err, list) {
     console.log("恭喜您，项目的TODO列表为空");
   }
 });
+```
+## 爱土豆的贡献者们
+
+```
+
+ project  : itodo
+ repo age : 26 hours
+ active   : 2 days
+ commits  : 10
+ files    : 6
+ authors  : 
+     9	Jackson Tian            90.0%
+     1	dead-horse              10.0%
+
 ```
 
 ## License
