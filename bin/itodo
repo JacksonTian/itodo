@@ -4,6 +4,7 @@
  * Module dependencies.
  */
 
+var pt = require('printable');
 var program = require('commander'),
   fs = require('fs'),
   path = require('path'),
@@ -41,11 +42,11 @@ if (!program.input) {
     }
     if (list.length) {
       console.log("您项目的TODO列表项还有：" + list.length + "项");
-      console.log('类型\t|内容\t\t\t\t|行\t|文件名\t\t');
+      var lines = [['类型', '内容', '行', '文件名']];
       list.forEach(function (item) {
-        console.log('---------------------------------------------------------------------');
-        console.log([item.type, item.item, item.lineno, item.filename].join('\t|'));
+        lines.push([item.type, item.item, item.lineno, item.filename]);
       });
+      console.log(pt.print(lines, ' | '));
     } else {
       console.log("恭喜您，项目的TODO列表为空");
     }
