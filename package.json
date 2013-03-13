@@ -4,7 +4,7 @@
   "description": "Get the todo list",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha -R spec"
   },
   "bin": {
     "itodo": "./bin/itodo"
@@ -14,9 +14,13 @@
     "TODO"
   ],
   "dependencies": {
-    "iwalk": "*",
-    "commander": "*",
-    "printable": "*"
+    "iwalk": "~0.0.3",
+    "commander": "~1.1.1",
+    "printable": "~0.0.3"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*"
   },
   "author": "Jackson Tian",
   "license": "MIT"
