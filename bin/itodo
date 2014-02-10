@@ -28,6 +28,15 @@ program.on('--help', function(){
 // parse argv
 program.parse(process.argv);
 
+var truncate = function (str, len, tail) {
+  len = len || 20;
+  tail = tail || '...';
+  if (str.length > len) {
+    return str.substring(0, len) + tail;
+  }
+  return str;
+};
+
 if (!program.input) {
   console.log('$ itodo -i <folder>');
 } else {
@@ -44,7 +53,7 @@ if (!program.input) {
       console.log("您项目的TODO列表项还有：" + list.length + "项");
       var lines = [['类型', '内容', '文件名:行']];
       list.forEach(function (item) {
-        lines.push([item.type, item.item, item.filename + ':' + item.lineno]);
+        lines.push([item.type, truncate(item.item, 70), path.relative(input, item.filename) + ':' + item.lineno]);
       });
       console.log(pt.print(lines, ' | '));
     } else {
