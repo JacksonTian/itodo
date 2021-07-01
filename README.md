@@ -1,6 +1,24 @@
 itodo (爱土豆)
 ======================
 
+[![NPM version][npm-image]][npm-url]
+[![build status][travis-image]][travis-url]
+[![codecov][cov-image]][cov-url]
+[![David deps][david-image]][david-url]
+[![npm download][download-image]][download-url]
+
+[npm-image]: https://img.shields.io/npm/v/itodo.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/itodo
+[travis-image]: https://img.shields.io/travis/JacksonTian/itodo.svg?style=flat-square
+[travis-url]: https://travis-ci.org/JacksonTian/itodo
+[cov-image]: https://codecov.io/gh/JacksonTian/itodo/branch/master/graph/badge.svg
+[cov-url]: https://codecov.io/gh/JacksonTian/itodo
+[david-image]: https://img.shields.io/david/JacksonTian/itodo.svg?style=flat-square
+[david-url]: https://david-dm.org/JacksonTian/itodo
+[download-image]: https://img.shields.io/npm/dm/itodo.svg?style=flat-square
+[download-url]: https://npmjs.org/package/itodo
+
+
 你也许喜欢随手写下TODO项：
 
 ```
@@ -11,8 +29,8 @@ itodo (爱土豆)
 
 ## 安装先
 
-```
-npm install itodo -g
+```sh
+$ npm install itodo -g
 ```
 
 ## 如何用？
@@ -22,7 +40,7 @@ itodo --help // 一目了然所有相关命令
 ```
 是的，最简单的用法就是`itodo -i <某个项目>`。生成结果如下：
 
-```
+```sh
 my_datavjs jacksontian $itodo -i .
 项目路径：/Users/jacksontian/git/itodo
 您项目的TODO列表项还有：3项
@@ -34,42 +52,44 @@ hack | check for the v0.6.x "newListener" event | 78 | /Users/jacksontian/git/it
 
 ## 手工调用
 
-```
-var itodo = require('itodo');
+```js
+const itodo = require('itodo');
 
-itodo.process(input, function (err, list) {
-  console.log("项目路径：" + input);
+console.log('项目路径：' + input);
+itodo.process(input).then((list) => {
+  if (list.length) {
+    console.log('您项目的TODO列表项还有：' + list.length + '项');
+    var lines = [['类型', '内容', '文件名:行']];
+    list.forEach(function (item) {
+      lines.push([item.type, item.item, path.relative(input, item.filename) + ':' + item.lineno]);
+    });
+    console.log(pt.print(lines, ' | '));
+  } else {
+    console.log('恭喜您，项目的TODO列表为空');
+  }
+}, (err) => {
   if (err) {
-    console.log("扫描项目出现错误：");
+    console.log('扫描项目出现错误：');
     console.log(err);
     return;
   }
-  if (list.length) {
-    console.log("您项目的TODO列表项还有：" + list.length + "项");
-    console.log('类型\t|内容\t\t\t\t|行\t|文件名\t\t');
-    list.forEach(function (item) {
-      console.log('---------------------------------------------------------------------');
-      console.log([item.type, item.item, item.lineno, item.filename].join('\t|'));
-    });
-  } else {
-    console.log("恭喜您，项目的TODO列表为空");
-  }
 });
 ```
+
 ## 爱土豆的贡献者们
 
-```
+```sh
+$ git summary
 
  project  : itodo
- repo age : 26 hours
- active   : 2 days
- commits  : 10
- files    : 6
+ repo age : 9 years
+ active   : 8 days
+ commits  : 23
+ files    : 10
  authors  : 
-     9	Jackson Tian            90.0%
-     1	dead-horse              10.0%
-
+    22  Jackson Tian  95.7%
+     1  dead-horse    4.3%
 ```
 
 ## License
-MIT
+The MIT license
