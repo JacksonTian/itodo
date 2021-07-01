@@ -1,24 +1,20 @@
 #!/usr/bin/env node
 
-/**
- * Module dependencies.
- */
+'use strict';
 
-var pt = require('printable');
-var program = require('commander'),
-  fs = require('fs'),
+const pt = require('printable');
+const program = require('commander'),
   path = require('path'),
-  itodo = require('../');
+  itodo = require('../lib/itodo');
 
 // options
-
 program
   .version(itodo.version)
   .option('-i, --input <folder>', 'Where is the project');
 
 // examples
 
-program.on('--help', function(){
+program.on('--help', function () {
   console.log('  Examples:');
   console.log('');
   console.log('    $ itodo -i <folder>');
@@ -42,22 +38,23 @@ if (!program.input) {
 } else {
   // process stdin
   var input = path.resolve(program.input);
-  itodo.process(input, function (err, list) {
-    console.log("项目路径：" + input);
-    if (err) {
-      console.log("扫描项目出现错误：");
-      console.log(err);
-      return;
-    }
+  console.log('项目路径：' + input);
+  itodo.process(input).then((list) => {
     if (list.length) {
-      console.log("您项目的TODO列表项还有：" + list.length + "项");
+      console.log('您项目的TODO列表项还有：' + list.length + '项');
       var lines = [['类型', '内容', '文件名:行']];
       list.forEach(function (item) {
         lines.push([item.type, truncate(item.item, 70), path.relative(input, item.filename) + ':' + item.lineno]);
       });
       console.log(pt.print(lines, ' | '));
     } else {
-      console.log("恭喜您，项目的TODO列表为空");
+      console.log('恭喜您，项目的TODO列表为空');
+    }
+  }, (err) => {
+    if (err) {
+      console.log('扫描项目出现错误：');
+      console.log(err);
+      return;
     }
   });
 }
