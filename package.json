@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha -R spec",
     "lint": "eslint --fix ./lib ./bin",
-    "cov": "nyc -r html npm run test",
+    "cov": "nyc -r=lcov -r=html -r=text -r=json npm run test",
     "ci": "npm run lint && npm run cov && codecov"
   },
   "bin": {
