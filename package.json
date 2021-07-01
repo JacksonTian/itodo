@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha -R spec",
     "lint": "eslint --fix ./lib ./bin",
-    "cov": "nyc -r html npm run test"
+    "cov": "nyc -r html npm run test",
+    "ci": "npm run lint && npm run cov && codecov"
   },
   "bin": {
     "itodo": "bin/itodo.js"
@@ -25,6 +26,7 @@
     "printable": "^0.0.3"
   },
   "devDependencies": {
+    "codecov": "^3.8.2",
     "eslint": "^7.29.0",
     "mocha": "^9.0.1",
     "nyc": "^15.1.0"
@@ -39,5 +41,8 @@
     "url": "https://github.com/JacksonTian/itodo/issues"
   },
   "homepage": "https://github.com/JacksonTian/itodo#readme",
-  "files": ["lib", "bin"]
+  "files": [
+    "lib",
+    "bin"
+  ]
 }
