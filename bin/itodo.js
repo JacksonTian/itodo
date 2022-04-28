@@ -12,8 +12,8 @@ program
   .version(itodo.version)
   .option('-i, --input <folder>', 'Where is the project')
   .option(
-    '-f, --filterDir "dir1,dir2"',
-    'Default to "node_modules,build,dist"',
+    '-f, --filterDir <dir1,dir2,dir3...>',
+    'Ignore directories',
   );
 
 // examples
