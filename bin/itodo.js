@@ -10,7 +10,11 @@ const program = require('commander'),
 // options
 program
   .version(itodo.version)
-  .option('-i, --input <folder>', 'Where is the project');
+  .option('-i, --input <folder>', 'Where is the project')
+  .option(
+    '-f, --filterDir "dir1,dir2"',
+    'Default to "node_modules,build,dist"',
+  );
 
 // examples
 
@@ -38,8 +42,9 @@ if (!program.input) {
 } else {
   // process stdin
   var input = path.resolve(program.input);
+  var filterDir = program.filterDir && program.filterDir.split(',');
   console.log('项目路径：' + input);
-  itodo.process(input).then((list) => {
+  itodo.process(input, filterDir).then((list) => {
     if (list.length) {
       console.log('您项目的TODO列表项还有：' + list.length + '项');
       var lines = [['类型', '内容', '文件名:行']];
