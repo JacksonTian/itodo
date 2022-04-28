@@ -13,7 +13,7 @@ program
   .option('-i, --input <folder>', 'Where is the project')
   .option(
     '-f, --filterDir <dir1,dir2,dir3...>',
-    'Ignore directories',
+    'Filter directories',
   );
 
 // examples
