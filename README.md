@@ -85,13 +85,14 @@ itodo.process(input).then((list) => {
 $ git summary
 
  project  : itodo
- repo age : 9 years
- active   : 8 days
- commits  : 23
- files    : 10
+ repo age : 10 years
+ active   : 9 days
+ commits  : 30
+ files    : 13
  authors  : 
-    22  Jackson Tian  95.7%
-     1  dead-horse    4.3%
+    28  Jackson Tian  93.3%
+     1  Jason Hsieh   3.3%
+     1  dead-horse    3.3%
 ```
 
 ## License
