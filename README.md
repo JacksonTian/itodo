@@ -50,6 +50,13 @@ hack | check for the v0.6.x "data" event        | 69 | /Users/jacksontian/git/it
 hack | check for the v0.6.x "newListener" event | 78 | /Users/jacksontian/git/itodo/node_modules/commander/node_modules/keypress/index.js
 ```
 
+## 省略文件夹
+
+`itodo --filterDir "dir1,dir2"  -i <某个项目>`
+
+默认等同 `itodo --filterDir "node_modules,.git,build,dist"  -i <某个项目>`
+
+
 ## 手工调用
 
 ```js
